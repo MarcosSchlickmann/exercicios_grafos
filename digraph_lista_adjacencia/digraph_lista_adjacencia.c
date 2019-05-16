@@ -1,8 +1,8 @@
 #include "digraph_lista_adjacencia.h"
 
-grafo_t *criaGRAFO(int n){
+digraph_lista *lista_criaGRAFO(int n){
 	int i;
-	grafo_t *grafo = (grafo_t*)malloc(sizeof(grafo_t));
+	digraph_lista *grafo = (digraph_lista*)malloc(sizeof(digraph_lista));
 	if(!grafo){
 		printf("[ERRO FATAL]: INCAPAZ DE ALOCAR MEMORIA PARA O GRAFO \n SAINDO...\n");
 		exit(500);
@@ -23,23 +23,25 @@ grafo_t *criaGRAFO(int n){
 }
 
 
-void addARESTA(grafo_t *grafo, int origem, int dest){
-	no_t *novoNO = criaNO(dest);
+void lista_addARESTA(digraph_lista *grafo, int origem, int dest){
+	no_t *novoNO = lista_criaNO(dest);
 	novoNO->prox = grafo->VETOR_lista_adj[origem].prox;
 	grafo->VETOR_lista_adj[origem].prox = novoNO;
 }
 
 
-void addARESTA_grafo(grafo_t *grafo, int origem, int dest){
-	no_t *novoNO = criaNO(origem);
-	novoNO->prox = grafo->VETOR_lista_adj[dest].prox;
-	grafo->VETOR_lista_adj[dest].prox = novoNO;
+void lista_addARESTA_grafo(digraph_lista *grafo, int origem, int dest){
+	no_t *novoNO1 = lista_criaNO(dest);
+	novoNO1->prox = grafo->VETOR_lista_adj[origem].prox;
+	grafo->VETOR_lista_adj[origem].prox = novoNO1;
 
-
+	no_t *novoNO2 = lista_criaNO(origem);
+	novoNO2->prox = grafo->VETOR_lista_adj[dest].prox;
+	grafo->VETOR_lista_adj[dest].prox = novoNO2;
 }
 
 
-no_t *criaNO(int v){
+no_t *lista_criaNO(int v){
 	no_t *novoNO = (no_t*)malloc(sizeof(no_t));
 	if(!novoNO){
 		printf("[ERRO FATAL]: INCAPAZ DE ALOCAR MEMORIA PARA UM NOVO NO \n SAINDO...\n");
@@ -51,7 +53,7 @@ no_t *criaNO(int v){
 }
 
 
-void destroiGRAFO(grafo_t* grafo){
+void lista_destroiGRAFO(digraph_lista* grafo){
 	if(grafo){
 		if(grafo->VETOR_lista_adj){
 			int v;
@@ -70,7 +72,7 @@ void destroiGRAFO(grafo_t* grafo){
 }
 
 
-void mostra_grafo(grafo_t *grafo){
+void lista_mostra_grafo(digraph_lista *grafo){
 	int i;
 	for(i = 0; i < grafo->num_vertices; i++){
 		printf("\n%d  ", i);

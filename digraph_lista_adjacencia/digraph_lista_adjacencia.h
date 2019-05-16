@@ -9,16 +9,16 @@ typedef struct no{
 typedef struct grafo{
 	int num_vertices;
 	no_t *VETOR_lista_adj;	
-} grafo_t;
+} digraph_lista;
 
-grafo_t *criaGRAFO(int n);
+digraph_lista *lista_criaGRAFO(int n);
 
-void addARESTA(grafo_t *grafo, int origem, int dest);
+void lista_addARESTA(digraph_lista *grafo, int origem, int dest);
 
-void addARESTA_grafo(grafo_t *grafo, int origem, int dest);
+void lista_addARESTA_grafo(digraph_lista *grafo, int origem, int dest);
 
-no_t *criaNO(int v);
+no_t *lista_criaNO(int v);
 
-void destroiGRAFO(grafo_t* grafo);
+void lista_destroiGRAFO(digraph_lista* grafo);
 
-void mostra_grafo(grafo_t *grafo);
+void lista_mostra_grafo(digraph_lista *grafo);
