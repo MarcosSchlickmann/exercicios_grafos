@@ -1,4 +1,4 @@
-#include "digraph/digraph.h"
+#include "digraph.h"
 
 int main(){
 	tipo_digrafo *digrafo = criaDIGRAFO(5);
