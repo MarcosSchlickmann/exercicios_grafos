@@ -58,6 +58,4 @@ void matriz_remove_arco_grafo(digraph_matriz *digrafo, int origem, int destino){
 		digrafo->matriz_adj[origem][destino] = 0;
 		digrafo->matriz_adj[destino][origem] = 0;
 	}
-
 }
-

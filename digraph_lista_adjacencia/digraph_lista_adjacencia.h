@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define VERTICE_BRANCO 0
+#define VERTICE_CINZA 1
+#define VERTICE_PRETO 2
+
 
 typedef struct no{
 	int vertice;
+	int cor;
+	struct no *pred;
+	int d_time;
+	int f_time;
 	struct no *prox;
 } no_t;
 
