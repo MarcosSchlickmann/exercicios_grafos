@@ -17,4 +17,5 @@ int main(){
 
 	digraph_lista *lista_digrafo_matriz = matriz_para_lista(digrafo_matriz);
 	lista_mostra_grafo(lista_digrafo_matriz);
+	printf("\n\n\n");
 }
