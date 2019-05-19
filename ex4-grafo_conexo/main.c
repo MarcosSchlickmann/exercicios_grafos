@@ -5,7 +5,7 @@ int main(void){
 	lista_addARESTA_grafo(dir_grafo1, 0, 1);
 	lista_addARESTA_grafo(dir_grafo1, 1, 2);
 
-	if(grafo_conexo(busca_profundidade(dir_grafo1), dir_grafo1->num_vertices)){
+	if(grafo_conexo(busca_profundidade(dir_grafo1, 0), dir_grafo1->num_vertices)){
 		printf("grafo1 é Conexo.\n");
 	}else{
 		printf("grafo1 não é Conexo.\n");
@@ -17,7 +17,7 @@ int main(void){
 	
 	lista_addARESTA_grafo(dir_grafo2, 3, 4);
 
-	if(grafo_conexo(busca_profundidade(dir_grafo2), dir_grafo2->num_vertices)){
+	if(grafo_conexo(busca_profundidade(dir_grafo2, 0), dir_grafo2->num_vertices)){
 		printf("grafo2 é Conexo.\n");
 	}else{
 		printf("grafo2 não é Conexo.\n");

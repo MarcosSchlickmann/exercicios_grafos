@@ -10,14 +10,13 @@ typedef struct informacao_no_busca_profundidade{
 	int pred;
 	int d_tempo;
 	int f_tempo;
-	int vertices_que_acessa;
-} info_no;
+} info_no_dfs;
 
-typedef struct tabela_informacao_nos{
-	info_no *coluna_info_no;
+typedef struct tabela_informacao_nos_dfs{
+	info_no_dfs *coluna_info_no;
 	int ciclos;
-} tabela_info_nos;
+} tabela_info_nos_dfs;
 
-tabela_info_nos *busca_profundidade(digraph_lista *lista);
+tabela_info_nos_dfs * busca_profundidade(digraph_lista *lista, int inicial);
 
-tabela_info_nos *busca_profundidade_visita(digraph_lista *lista, int no, tabela_info_nos *tabela_info);
+tabela_info_nos_dfs *busca_profundidade_visita(digraph_lista *lista, int no, tabela_info_nos_dfs *tabela_info);

@@ -3,9 +3,9 @@
 int grafo_orientado(digraph_lista *lista){
 	int i, encontrou;
 	for(i = 0; i < lista->num_vertices; i++){
-		no_t *Primeiro = lista->VETOR_lista_adj[i].prox;
+		no_lista *Primeiro = lista->VETOR_lista_adj[i].prox;
 		while(Primeiro){
-			no_t *Segundo = lista->VETOR_lista_adj[Primeiro->vertice].prox;
+			no_lista *Segundo = lista->VETOR_lista_adj[Primeiro->vertice].prox;
 			while(Segundo){
 				if(Segundo->vertice == i){
 					encontrou = 1;
