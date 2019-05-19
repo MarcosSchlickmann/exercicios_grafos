@@ -3,20 +3,16 @@
 #define VERTICE_BRANCO 0
 #define VERTICE_CINZA 1
 #define VERTICE_PRETO 2
-
-typedef struct informacao_no_busca_profundidade{
+#define INFINITO 1000000
+typedef struct informacao_no_busca_largura{
 	int vertice;
 	int cor;
 	int pred;
-	int d_tempo;
-	int f_tempo;
+	int dist;
 } info_no;
 
 typedef struct tabela_informacao_nos{
 	info_no *coluna_info_no;
-	int ciclos;
 } tabela_info_nos;
 
-tabela_info_nos *busca_profundidade(digraph_lista *lista);
-
-tabela_info_nos *busca_profundidade_visita(digraph_lista *lista, int no, tabela_info_nos *tabela_info);
+tabela_info_nos *busca_largura(digraph_lista * lista_adj, int inicio);
