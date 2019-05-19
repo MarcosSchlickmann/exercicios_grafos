@@ -37,5 +37,6 @@ int main(void){
 	{
 		printf(" %d ", tabela_nos->coluna_info_no[i].dist);
 	}
+	printf("\n");
 	return 0;
 }

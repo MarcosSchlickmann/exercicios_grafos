@@ -5,7 +5,7 @@ int main(void){
 	lista_addARESTA_grafo(dir_grafo, 0, 1);
 	lista_addARESTA_grafo(dir_grafo, 1, 2);
 	lista_mostra_grafo(dir_grafo);
-	tabela_info_nos_dfs *tabela_nos = busca_profundidade(dir_grafo);
+	tabela_info_nos_dfs *tabela_nos = busca_profundidade(dir_grafo, 0);
 
 	printf("\n\nu  ");
 	for(int a = 0; a < 3; a++)

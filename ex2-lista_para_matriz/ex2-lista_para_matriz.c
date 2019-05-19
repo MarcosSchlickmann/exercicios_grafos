@@ -1,4 +1,3 @@
-#include "../digraph_lista_adjacencia/digraph_lista_adjacencia.h"
 #include "ex2-lista_para_matriz.h"
 
 digraph_matriz* lista_para_matriz(digraph_lista *digrafo_lista){
