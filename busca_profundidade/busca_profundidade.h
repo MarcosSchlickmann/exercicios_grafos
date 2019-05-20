@@ -26,8 +26,8 @@ typedef struct classificacao_aresta_dfs{
 
 typedef struct tabela_informacao_nos_dfs{
 	info_no_dfs *coluna_info_no;
-	int ciclos;
-	class_aresta *class_arestas_tabela;
+	int ciclos; // Contagem de todos os ciclos presentes no grafo
+	class_aresta *class_arestas_tabela; // Vetor com classificação de arestas
 	int qtd_arestas;
 } tabela_info_nos_dfs;
 
@@ -36,6 +36,6 @@ tabela_info_nos_dfs * busca_profundidade(digraph_lista *lista, int inicial);
 
 tabela_info_nos_dfs *busca_profundidade_visita(digraph_lista *lista, int no, tabela_info_nos_dfs *tabela_info);
 
-int raiz(tabela_info_nos_dfs *tabela, int no);
+int raiz(tabela_info_nos_dfs *tabela, int no); // Retorna a raiz de um vertice de um grafo
 
 void print_tipo_aresta(int i);

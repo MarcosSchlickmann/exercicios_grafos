@@ -1,5 +1,6 @@
 #include "grafo_conexo.h"
 
+// Retorna que não é um grafo conexo se existir vértices sem predecessores
 int grafo_conexo(tabela_info_nos_dfs *tabela, int qtd_vertices){
 	for (int i = 0; i < qtd_vertices; ++i)
 		if(i != 0 && tabela->coluna_info_no[i].pred == -1)

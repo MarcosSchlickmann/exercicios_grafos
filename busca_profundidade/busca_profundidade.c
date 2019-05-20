@@ -14,8 +14,11 @@ tabela_info_nos_dfs * busca_profundidade(digraph_lista *lista, int inicial){
 		tabela_nos->coluna_info_no[i].pred = -1;
 	}
 	tempo = 0;
+
+	// Caso definido um vertice específico de origem, inicia visitando ele
 	if(inicial)
 		tabela_nos = busca_profundidade_visita(lista, inicial, tabela_nos);
+
 	for(int u = 0; u < lista->num_vertices; u++)
 		if(tabela_nos->coluna_info_no[u].cor == VERTICE_BRANCO)
 			tabela_nos = busca_profundidade_visita(lista, u, tabela_nos);
@@ -30,22 +33,30 @@ tabela_info_nos_dfs *busca_profundidade_visita(digraph_lista *lista, int no, tab
 
 	no_lista *Adjacente = lista->VETOR_lista_adj[no].prox;
 	while(Adjacente){
+		// Define um nova aresta para classificação
 		tabela_info->qtd_arestas += 1;
 		tabela_info->class_arestas_tabela[tabela_info->qtd_arestas].vertice_origem = no;
 		tabela_info->class_arestas_tabela[tabela_info->qtd_arestas].vertice_destino = Adjacente->vertice;
+
+		// Caso vertice atual cinza, aumenta a quantidade de ciclos em um, e define a aresta como de retorno
 		if(tabela_info->coluna_info_no[Adjacente->vertice].cor == VERTICE_CINZA){
 			tabela_info->ciclos += 1;
 			tabela_info->class_arestas_tabela[tabela_info->qtd_arestas].classificacao_aresta = ARESTA_RETORNO;
 		}
+
 		if(tabela_info->coluna_info_no[Adjacente->vertice].cor == VERTICE_PRETO){
+			// Caso vertice atual preto, e raiz no mesmo ramo, define como uma aresta direta
 			if(raiz(tabela_info, no) == raiz(tabela_info, Adjacente->vertice)){
 				tabela_info->class_arestas_tabela[tabela_info->qtd_arestas].classificacao_aresta = ARESTA_DIRETA;	
 			}else{
+			// Caso vertice atual preto, e raiz em outro ramo, define como uma aresta cruzada
 				tabela_info->class_arestas_tabela[tabela_info->qtd_arestas].classificacao_aresta = ARESTA_CRUZADA;	
 			}
 		}
 		if(tabela_info->coluna_info_no[Adjacente->vertice].cor == VERTICE_BRANCO){
+			// Classifica aresta de árvore aos vértices brancos
 			tabela_info->class_arestas_tabela[tabela_info->qtd_arestas].classificacao_aresta = ARESTA_ARVORE;	
+
 			tabela_info->coluna_info_no[Adjacente->vertice].pred = no;
 			tabela_info = busca_profundidade_visita(lista, Adjacente->vertice, tabela_info);
 		}

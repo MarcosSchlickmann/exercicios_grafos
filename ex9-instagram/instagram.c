@@ -48,10 +48,13 @@ void print_pessoa_mais_popular(digraph_lista *lista_adj, perfis_insta *perfis){
 	int maior_grau = -2;
 	for(int i = 0; i < lista_adj->num_vertices; i++){
 		perfis->perfis[i].qtd_seguidores = verifica_grau(lista_adj, i);
+		// Verifica qual o maior grau presente no grafo, ou seja, o perfil que possui mais seguidores
 		if(verifica_grau(lista_adj, i) > maior_grau)
 			maior_grau = verifica_grau(lista_adj, i);
 	}
+
 	for (int j = 0; j < lista_adj->num_vertices; ++j)
+		// exibe todos os perfis que possuem quantidade de seguidores igual ao maior grau
 		if(perfis->perfis[j].qtd_seguidores == maior_grau)
 			printf("Pessoa popular: %s, com %d seguidores\n", perfis->perfis[j].nome, maior_grau);
 }
@@ -60,7 +63,7 @@ void print_pessoa_mais_popular(digraph_lista *lista_adj, perfis_insta *perfis){
 void print_quantidade_seguidores(digraph_lista *lista_adj, perfis_insta *perfis, int id){
 	int segue = 0;
 	no_lista *Adjacente = lista_adj->VETOR_lista_adj[id].prox;
-	while(Adjacente){
+	while(Adjacente){// Calcula quantidade de seguidores somando todos os seus adjacentes
 		segue += 1;
 		Adjacente = Adjacente->prox;
 	}
@@ -76,6 +79,7 @@ void print_perfis_que_seguem_mais_velhos(digraph_lista *lista_adj, perfis_insta 
 		idade = perfis->perfis[i].idade;
 		no_lista *Adjacente = lista_adj->VETOR_lista_adj[i].prox;
 		while(Adjacente){
+			// Itera pelos adjacentes de todos os perfis, e soma caso forem mais velhos
 			if(perfis->perfis[Adjacente->vertice].idade <= idade){
 				segue_mais_jovens = 1;
 				break;

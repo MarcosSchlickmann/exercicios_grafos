@@ -5,6 +5,7 @@ int verifica_grau(digraph_lista *lista, int no){
 	for(int i = 0; i < lista->num_vertices; i++){
 		no_lista *Adjacente = lista->VETOR_lista_adj[i].prox;
 		while(Adjacente){
+			// Conta grau do nó somando de quantos vértices ele é adjacente
 			if(Adjacente->vertice == no){
 				grau += 1;
 				break;
