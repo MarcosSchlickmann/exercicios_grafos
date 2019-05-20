@@ -1,17 +1,7 @@
-#include "ex17.h"
+#include "heap.h"
 #define INFINITO 100000000
-int distancias [9] = {
-	32, 
-	10, 
-	3, 
-	21, 
-	41, 
-	0, 
-	23, 
-	4, 
-	25
-};
-void cria_heap(int vetor[], int inicio, int final){
+
+void cria_heap(int vetor[], int distancias[], int inicio, int final){
 	int aux = vetor[inicio];
 	int filho = inicio * 2 + 1;
 
