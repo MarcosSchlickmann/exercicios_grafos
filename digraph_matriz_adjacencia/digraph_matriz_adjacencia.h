@@ -13,6 +13,8 @@ int **matriz_criaMatriz(int total_linha, int total_coluna, int valor);
 
 void matriz_insere_arco_digrafo(digraph_matriz *digrafo, int origem, int destino);
 
+void matriz_insere_arco_digrafo_dist(digraph_matriz *digrafo, int origem, int destino, int dist);
+
 void matriz_insere_arco_grafo(digraph_matriz *digrafo, int origem, int destino);
 
 void matriz_mostra_digrafo(digraph_matriz *digrafo);

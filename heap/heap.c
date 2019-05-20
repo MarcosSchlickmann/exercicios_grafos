@@ -20,17 +20,17 @@ void cria_heap(int vetor[], int distancias[], int inicio, int final){
 }
 
 
-void heap_sort_menor_para_maior(int vetor[], int tamanho){
+void heap_sort_menor_para_maior(int vetor[], int distancias[], int tamanho){
 	int i, aux;
 
 	for(i = (tamanho-1)/2; i >= 0; i--)
-		cria_heap(vetor, i, tamanho-i);
+		cria_heap(vetor, distancias, i, tamanho-i);
 
 	for (i = tamanho-1; i >= 1; i--)
 	{
 		aux = vetor[0];
 		vetor[0] = vetor[i];
 		vetor[i] = aux;
-		cria_heap(vetor, 0, i-1);
+		cria_heap(vetor, distancias, 0, i-1);
 	}
 }

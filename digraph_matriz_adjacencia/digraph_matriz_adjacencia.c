@@ -26,6 +26,12 @@ void matriz_insere_arco_digrafo(digraph_matriz *digrafo, int origem, int destino
 }
 
 
+void matriz_insere_arco_digrafo_dist(digraph_matriz *digrafo, int origem, int destino, int dist){
+	if(digrafo->matriz_adj[origem][destino] == 0)
+		digrafo->matriz_adj[origem][destino] = dist;
+}
+
+
 void matriz_insere_arco_grafo(digraph_matriz *digrafo, int origem, int destino){
 	matriz_insere_arco_digrafo(digrafo, origem, destino);
 	matriz_insere_arco_digrafo(digrafo, destino, origem);
