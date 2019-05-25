@@ -3,7 +3,7 @@
 
 #include "../heap/heap.h"
 
-#define INFINITO 100000000
+#define INFINITO 100000
 
 typedef struct dijkstra_vertice_info{
 	int *fila_p;
@@ -13,10 +13,14 @@ typedef struct dijkstra_vertice_info{
 	digraph_matriz *matriz_distancias;
 } tabela_dij_info;
 
-tabela_dij_info *dijkstra(digraph_lista *lista, int inicial);
+tabela_dij_info *dijkstra(digraph_lista *lista, digraph_matriz *matriz_pesos, int inicial);
 
-int peso(int origem, int destino);
+int peso(digraph_matriz *matriz_distancias, int origem, int destino);
 
 tabela_dij_info *inserir_fila_p(tabela_dij_info *tabela, int vertice);
 
 tabela_dij_info *remover_fila_p(tabela_dij_info *tabela, int *vertice);
+
+void exibe_tabela_dijkstra(tabela_dij_info *tabela);
+
+void exibe_caminho_mais_proximo(tabela_dij_info *tabela, int destino);

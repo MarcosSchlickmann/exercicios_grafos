@@ -53,6 +53,26 @@ void matriz_mostra_digrafo(digraph_matriz *digrafo){
 }
 
 
+void matriz_mostra_digrafo_dist(digraph_matriz *digrafo){
+	int origem, destino;
+	printf("\nMOSTRA MATRIZ ADJACENCIA DIGRAFO\n");
+	printf("   ");
+	for (int i = 1; i <= digrafo->numVertice; ++i)
+	{
+		printf("%d ", i);
+	}
+	printf("\n");
+	printf("\n");
+	for(origem = 0; origem < digrafo->numVertice; origem++){
+		printf("%d ", origem+1);
+		for(destino = 0; destino < digrafo->numVertice; destino++){
+			printf(" %d", digrafo->matriz_adj[origem][destino]);
+		}
+		printf(" \n");
+	}
+}
+
+
 void matriz_remove_arco_digrafo(digraph_matriz *digrafo, int origem, int destino){
 	if(digrafo->matriz_adj[origem][destino] == 1)
 		digrafo->matriz_adj[origem][destino] = 0;
