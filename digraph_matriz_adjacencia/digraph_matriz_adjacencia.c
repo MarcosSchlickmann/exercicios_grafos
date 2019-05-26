@@ -38,6 +38,12 @@ void matriz_insere_arco_grafo(digraph_matriz *digrafo, int origem, int destino){
 }
 
 
+void matriz_insere_arco_grafo_dist(digraph_matriz *digrafo, int origem, int destino, int dist){
+	matriz_insere_arco_digrafo_dist(digrafo, origem, destino, dist);
+	matriz_insere_arco_digrafo_dist(digrafo, destino, origem, dist);
+}
+
+
 void matriz_mostra_digrafo(digraph_matriz *digrafo){
 	int origem, destino;
 	printf("\nMOSTRA MATRIZ ADJACENCIA DIGRAFO\n");

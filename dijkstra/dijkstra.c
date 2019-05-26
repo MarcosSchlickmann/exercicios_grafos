@@ -59,8 +59,13 @@ tabela_dij_info *remover_fila_p(tabela_dij_info *tabela, int *vertice){
 
 void exibe_tabela_dijkstra(tabela_dij_info *tabela){
 	printf("\n  ");
-	for (int i = 0; i < tabela->matriz_distancias->numVertice; ++i)
-		printf("0%d ", i+1);
+	for (int i = 0; i < tabela->matriz_distancias->numVertice; ++i){
+		if(i + 1 < 10){
+			printf("0%d ", i+1);
+		} else{
+			printf("%d ", i+1);
+		}
+	}
 	printf("\n");
 	printf("\n");
 	printf("d ");
@@ -73,15 +78,20 @@ void exibe_tabela_dijkstra(tabela_dij_info *tabela){
 	}
 	printf("\n");
 	printf("p ");
-	for (int p = 0; p < tabela->matriz_distancias->numVertice; ++p)
-		printf("0%d ", tabela->pred[p] + 1);
+	for (int p = 0; p < tabela->matriz_distancias->numVertice; ++p){
+		if(tabela->pred[p] + 1 < 10){
+			printf("0%d ", tabela->pred[p] + 1);
+		} else{
+			printf("%d ", tabela->pred[p] + 1);
+		}
+	}
 	printf("\n");
 }
 
 
 void exibe_caminho_mais_proximo(tabela_dij_info *tabela, int destino){
 	if(tabela->pred[destino] > -1){
-		printf("Vertice %d com custo %d\n", tabela->pred[destino]+1, tabela->dist[destino]);
+		printf("Do vertice %d ao vertice %d com custo %d\n", tabela->pred[destino]+1, destino+1, tabela->dist[destino]);
 		exibe_caminho_mais_proximo(tabela, tabela->pred[destino]);
 	}
 }

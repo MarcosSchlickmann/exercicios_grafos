@@ -17,6 +17,8 @@ void matriz_insere_arco_digrafo_dist(digraph_matriz *digrafo, int origem, int de
 
 void matriz_insere_arco_grafo(digraph_matriz *digrafo, int origem, int destino);
 
+void matriz_insere_arco_grafo_dist(digraph_matriz *digrafo, int origem, int destino, int dist);
+
 void matriz_mostra_digrafo(digraph_matriz *digrafo);
 
 void matriz_mostra_digrafo_dist(digraph_matriz *digrafo);
